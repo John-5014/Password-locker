@@ -17,3 +17,5 @@ class User:
     User.user_list.remove(self)
 
 
+class Credentials:
+      pass
