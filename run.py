@@ -156,7 +156,25 @@ def main():
                           f'Credential created: Site Name:{site_name} - Account Name: {account_name} - Password:{password}')
                       print(' ')   
 
-                  
+                  elif short_code == 'dc':
+                      print(' ')
+                      if display_credential(user_name):
+                        print('Here is a list of all your credentials')
+                        print(' ')
+                        for credential in display_credential(user_name):
+                          print(f'Site Name: {credential.site_name} - Account Name: {credential.account_name} - Password{credential.password}')
+                          print(' ')
+                  elif short_code == 'copy':
+                    print(' ')
+                    chosen_site = input('Enter the site name for the credential password to copy: ')
+                    copy_credentials(chosen_site)
+                    print('')
+                  else:
+                    print('Wrong option entered. Retry')
+        else:
+          print("-"*30)
+          print(' ')
+          print('Sorry wrong option enetered. Retry')
 
                 
                 
