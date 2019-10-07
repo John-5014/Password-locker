@@ -1,7 +1,5 @@
-
-
-
 import unittest
+import pyperclip
 
 '''
 Importing the unittest module
@@ -162,11 +160,37 @@ class TestCredentials(unittest.TestCase):
     test to check if the display_credentials(),displays correct credentials
     '''
     self.new_credential.save_credentials()
-    twitter = Credentials('Chris','Twitter',"will","pwd456")
+    twitter = Credentials('john','Twitter',"will","pwd123456")
     twitter.save_credentials()
-    LinkedIn = Credentials('chris','LinkedIn','will','pwd5678')
+    LinkedIn = Credentials('john','LinkedIn','will','pwd123456')
     LinkedIn.save_credentials()
     self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
+  # def test_copy_credential(self):
+  #   '''
+  #   Test to check if the copy a credential method copies the correct credential
+  #   '''
+  #   self.new_credential.save_credentials()
+  #   twitter = Credentials('john','Twitter','will','pwd123456')
+  #   twitter.save_credentials()
+  #   find_credential = None
+  #   for credential in Credentials.user_credentials_list:
+
+  #     find_credential =Credentials.find_by_site_name(credential.site_name)
+
+  #     return pyperclip.copy(find_credential.site_name)
+
+  #     Credentials.copy_credential(self.new_credential.site_name)
+  #     self.assertEqual("Twitter",pyperclip.paste())
+  #     print(pyperclip.paste())
+
+      #~~Credentials.copy_credential(self.new_credential.site_name)
+   # self.assertEqual('pwd123456',pyperclip.paste())
+     
+
+
+
+
+
 
   
 
