@@ -24,7 +24,9 @@ As a user I would like:
 | Display prompt for creating a credential | **Enter: cc** | Enter the site name, your username and password |
 | Display a list of credentials | **Enter: dc** | Prints a list of saved credentials |
 | Display prompt for which credential to copy | **Enter: copy** | Enter the site name of the credential you wish to copy. |
+| Deleting a credential | **Enter: dl**| Enter the site you want to delete |
 | Exit application | **Enter: ex** | Exit the current navigation stage |
+
 
 ## SetUp / Installation Requirements
 ### Prerequisites
@@ -52,4 +54,8 @@ As a user I would like:
         
 ## Technologies Used
 * Python3.6
+
+
+## License
+MIT &copy;2017 [John Karanja](https://github.com/John-5014)
 
