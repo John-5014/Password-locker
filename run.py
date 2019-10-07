@@ -35,6 +35,28 @@ def generate_password():
 
   return gen_password
 
+def create_credential(credential):
+    '''
+    function that creates new credential
+    '''
+
+    Credentials.save_credentials(credential)
+
+
+def save_credential(credential):
+
+  '''
+  function to save a credential
+  '''
+  Credentials.save_credentials(credential)
+
+def display_credential(user_name):
+  '''
+	Function to display credentials saved by a user
+	'''
+
+  return Credentials.display_credentials(user_name)
+
 
 
 
