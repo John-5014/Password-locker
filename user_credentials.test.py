@@ -98,11 +98,24 @@ class TestCredentials(unittest.TestCase):
     return current_user
 
     self.assertEqual(current_user,Credentials.check_user(user2.password,user2.first_name))
+
+
   def setUp(self):
     '''
 		Function to create an account's credentials before each test
 		'''
     self.new_credential= Credentials('Rubi','Facebook','Rubitog','pwd12')
+
+
+
+  def tearDown(self):
+    '''
+    Function to clear the credentials list after every test
+    '''
+    Credentials.credentials_list = []
+    User.user_list = []
+
+
   def test__init__(self):
     '''
 		Test to if check the initialization/creation of credential instances is properly done
@@ -121,14 +134,28 @@ class TestCredentials(unittest.TestCase):
     self.new_credential.save_credentials()
     
     self.assertEqual(len(Credentials.credentials_list),1)
+
+  def test_find_by_site_name(self):
+
+    '''
+    test to check if the find_site_name methode returns the correct credential
+    '''
+    self.new_credential.save_credentials()
+    twitter = Credentials('Chris','Twitter','will','pwd456')
+    twitter.save_credentials()
+    credentials_exists = Credentials.find_by_site_name('Twitter')
+    self.assertEqual(credentials_exists,twitter)
+
+
+  def test_save_multiple_credentials(self):
+    self.new_credential.save_credentials()
+    test_credential = Credentials("Test","user","pwd1234","saagdd")
+    test_credential.save_credentials()
+    self.assertEqual(len(Credentials.credentials_list),2)
+
   
 
-  def tearDown(self):
-    '''
-    Function to clear the credentials list after every test
-    '''
-    Credentials.credentials_list = []
-    User.user_list = []
+  
 
   def test_display_credentials(self):
     '''
@@ -141,16 +168,7 @@ class TestCredentials(unittest.TestCase):
     LinkedIn.save_credentials()
     self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
 
-  def test_find_by_site_name(self):
-
-    '''
-    test to check if the find_site_name methode returns the correct credential
-    '''
-    self.new_credential.save_credentials()
-    twitter = Credentials('Chris','Twitter','will','pwd456')
-    twitter.save_credentials()
-    credentials_exists = Credentials.find_by_site_name('Twitter')
-    self.assertEqual(credentials_exists,twitter)
+  
 
 
       
