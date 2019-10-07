@@ -34,6 +34,11 @@ As a user I would like:
 * xclip
 
 
+## Bugs Known
+
+* None encountered yet
+
+
 ## Running the Application
 * To run the application, in your terminal:
 
