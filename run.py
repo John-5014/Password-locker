@@ -86,10 +86,10 @@ def main():
       print(' ')
       print('To create a new account:')
 
-      first_name = input('Enter your first name- ').strip()
-      last_name = input('Enter your last name- ').strip()
+      first_name = input('Enter your first name- \n').strip()
+      last_name = input('Enter your last name- \n').strip()
 
-      password = input('Enter your password').strip()
+      password = input('Enter your password \n').strip()
       save_user(create_user(first_name,last_name,password))
       print(" ")
       print(f'New Account Created for: {first_name} {last_name} with password: {password}')
@@ -107,7 +107,21 @@ def main():
         print(f'Welcome {user_name}.Please choose an option to continue.')
         print(' ')
 
-  
+  while True:
+    print("-"*30)
+    print('Navigation codes: \n cc-Create a Credential \n dc-Display Credentials \n copy-Copy Password \n ex-Exit')
+    short_code = input('Enter a choice: ').lower().strip()
+    print("-"*30)
+    if short_code == 'ex':
+      print(" ")
+      print(f'Goodbye {user_name}')
+      break
+    elif short_code == 'cc':
+      print(' ')
+      print('Enter your credential details:')
+      site_name = input('Enter the site\'s name-').strip()
+      account_name = input('Enter your account\'s name-').strip()
+
 
     
 
