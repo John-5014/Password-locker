@@ -69,6 +69,62 @@ def copy_credentials(site_name):
 
 
 
+def main():
+  print(' ')
+  print('Hi! Welcome to Password-locker.')
+
+  while True:
+    print(' ')
+    print("-"*30)
+    print('Use the guide codes to choose: \n ca-Create an Account \n li-Log In \n ex-Exit')
+    short_code = input('Enter a choice: ').lower().strip()
+    if short_code == 'ex':
+      break
+
+    elif short_code == 'ca':
+      print("-"*30)
+      print(' ')
+      print('To create a new account:')
+
+      first_name = input('Enter your first name- ').strip()
+      last_name = input('Enter your last name- ').strip()
+
+      password = input('Enter your password').strip()
+      save_user(create_user(first_name,last_name,password))
+      print(" ")
+      print(f'New Account Created for: {first_name} {last_name} with password: {password}')
+
+
+    elif short_code == 'li':
+      print("-"*30)
+      print(' ')
+      print('To  login,enter your account details: ')
+      user_name = input('Enter your first name- ').strip()
+      password = str(input('Enter your password - '))
+      user_exists = verify_user(user_name,password)
+
+      if user_exists == user_name:
+        print(f'Welcome {user_name}.Please choose an option to continue.')
+        print(' ')
+
+  
+
+    
+
+
+
+
+
+
+
+
+
+if __name__ == '__main__':
+  unittest:main()
+
+
+
+
 
 
   
