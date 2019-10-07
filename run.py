@@ -73,6 +73,26 @@ def copy_credentials(site_name):
     return Credentials.copy_credentials(site_name)
 
 
+def delete_credential(credential):
+
+  '''
+  function that deletes credential account
+  '''
+
+  credential.delete_credential()
+
+
+def find_by_site_name(site_name):
+
+  '''
+  function that finds a credential by name
+  '''
+
+  
+  return Credentials.find_by_site_name(site_name)
+
+
+
 def main():
     print(' ')
     print('Hi! Welcome to Password-locker.')
@@ -117,7 +137,7 @@ def main():
 
 
                   print("-"*30)
-                  print('Navigation codes: \n cc-Create a Credential \n dc-Display Credentials \n copy-Copy Password \n ex-Exit')
+                  print('Navigation codes: \n cc-Create a Credential \n dc-Display Credentials \n dl-Delete \n copy-Copy Password \n ex-Exit')
                   short_code = input('Enter a choice: ').lower().strip()
                   print("-"*30)
                   if short_code == 'ex':
@@ -134,7 +154,7 @@ def main():
                       while True:
                         print(' ')
                         print("-"*30)
-                        print('Please choose an option for entering a password: \n ep-enter existing password \n                gp-generate a password \n ex-exit')
+                        print('Please choose an option for entering a password: \n ep-enter existing password \n gp-generate a password \n ex-exit')
                         psw_choice = input('Enter an option: ').lower().strip()
                         print("-"*30)
                         if psw_choice == 'ep':
@@ -169,6 +189,15 @@ def main():
                     chosen_site = input('Enter the site name for the credential password to copy: ')
                     copy_credentials(chosen_site)
                     print('')
+
+                  elif short_code == 'dl':
+                    print('Enter the name of site to be deleted')
+                    delete_account = input()
+
+                    if find_by_site_name(delete_account):
+                      delete_credential(find_by_site_name(delete_account))
+                    else:
+                      print('Sorry account not matched')
                   else:
                     print('Wrong option entered. Retry')
         else:
